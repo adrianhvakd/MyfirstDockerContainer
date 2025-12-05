@@ -17,7 +17,6 @@ $result = mysqli_query($conn, $sql);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Usuarios</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
@@ -28,19 +27,19 @@ $result = mysqli_query($conn, $sql);
             <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
                 <thead class="bg-blue-500 text-white">
                     <tr>
-                        <th class="py-3 px-6 text-left">ID</th>
-                        <th class="py-3 px-6 text-left">Nombre</th>
-                        <th class="py-3 px-6 text-left">Usuario</th>
-                        <th class="py-3 px-6 text-left">Contraseña</th>
+                        <th class="py-3 px-6 text-center">ID</th>
+                        <th class="py-3 px-6 text-center">Nombre</th>
+                        <th class="py-3 px-6 text-center">Usuario</th>
+                        <th class="py-3 px-6 text-center">Contraseña</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while($row = mysqli_fetch_assoc($result)): ?>
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6"><?php echo htmlspecialchars($row['id_usuario']); ?></td>
-                        <td class="py-3 px-6"><?php echo htmlspecialchars($row['nombre']); ?></td>
-                        <td class="py-3 px-6"><?php echo htmlspecialchars($row['usuario']); ?></td>
-                        <td class="py-3 px-6"><?php echo htmlspecialchars($row['contraseña']); ?></td>
+                        <td class="py-3 px-6 text-center"><?php echo htmlspecialchars($row['id_usuario']); ?></td>
+                        <td class="py-3 px-6 text-center"><?php echo htmlspecialchars($row['nombre']); ?></td>
+                        <td class="py-3 px-6 text-center"><?php echo htmlspecialchars($row['usuario']); ?></td>
+                        <td class="py-3 px-6 text-center"><?php echo htmlspecialchars($row['contraseña']); ?></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
