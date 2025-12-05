@@ -7,7 +7,7 @@ $database = "upds2025";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 if (!$conn) {
-    die("Conexión fallida: " . mysqli_connect_error());
+    die("Conexión fallida xd: " . mysqli_connect_error());
 }
 
 $sql = "SELECT id_usuario, nombre, usuario, contraseña FROM usuarios";
