@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    container_name: mi_mysql_app
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: upds2025
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: contrasena
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  web:
+    build: ./php
+    container_name: mi_php_apache
+    ports:
+      - "90:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: mi_pma
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    ports:
+      - "91:80"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:  
